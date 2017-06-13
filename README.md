@@ -11,6 +11,7 @@
   - `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
   - If you want all of the previously installed packages, run `brew bundle` in the directory with the `Brewfile` (this will take some time)
   - Otherwise, run `brew install python3`, `wget`, `vim` for starters
+  - `brew install z`
 
 # Download [Atom](https://atom.io/)
   - Run `apm install --packages-file atom-packages`
