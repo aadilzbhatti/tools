@@ -5,6 +5,7 @@
     - Favorite theme: `agnoster`
     - Install [Powerline](https://github.com/powerline/fonts) fonts
     - Then, in iTerm2 make sure to set font to "12pt Ubuntu Mono derivative Powerline"
+  - https://stackoverflow.com/questions/6205157/iterm-2-how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/29403520#29403520
 
 
 # Set up [Homebrew](https://brew.sh/)
@@ -18,5 +19,4 @@
 
 # Set up Vim
   - `brew install vim`, `brew install wget` if not done already
-  - `cp vimrc ~/.vimrc`
-  - `wget https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim ~/.vim/colors/onedark.vim` if you want the one-dark vim theme
+  - https://github.com/amix/vimrc
