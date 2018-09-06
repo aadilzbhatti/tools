@@ -6,6 +6,7 @@
     - Install [Powerline](https://github.com/powerline/fonts) fonts
     - Then, in iTerm2 make sure to set font to "12pt Ubuntu Mono derivative Powerline"
   - https://stackoverflow.com/questions/6205157/iterm-2-how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/29403520#29403520
+  - https://unix.stackexchange.com/questions/295680/cannot-exec-bin-false-no-such-file-or-directory
 
 
 # Set up [Homebrew](https://brew.sh/)
