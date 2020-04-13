@@ -21,3 +21,6 @@
 # Set up Vim
   - `brew install vim`, `brew install wget` if not done already
   - https://github.com/amix/vimrc
+
+# Add tmux/ssh config to iterm2
+  - ssh <hostname> -t '/apollo/env/envImprovement/bin/tmux -CC -u attach || /apollo/env/envImprovement/bin/tmux -CC -u new'
