@@ -23,4 +23,4 @@
   - https://github.com/amix/vimrc
 
 # Add tmux/ssh config to iterm2
-  - ssh <hostname> -t '/apollo/env/envImprovement/bin/tmux -CC -u attach || /apollo/env/envImprovement/bin/tmux -CC -u new'
+  - ssh <hostname> -t 'tmux -CC -u attach || tmux -CC -u new'
