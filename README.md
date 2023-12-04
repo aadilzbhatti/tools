@@ -10,7 +10,7 @@
 
 
 # Set up [Homebrew](https://brew.sh/)
-  - `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
   - If you want all of the previously installed packages, run `brew bundle` in the directory with the `Brewfile` (this will take some time)
   - Otherwise, run `brew install python3`, `wget`, `vim` for starters
   - `brew install z`
