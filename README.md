@@ -15,8 +15,7 @@
   - Otherwise, run `brew install python3`, `wget`, `vim` for starters
   - `brew install z`
 
-# Download [Atom](https://atom.io/)
-  - Run `apm install --packages-file atom-packages`
+# Download [VSCode](https://code.visualstudio.com/Download)
 
 # Set up Vim
   - `brew install vim`, `brew install wget` if not done already
