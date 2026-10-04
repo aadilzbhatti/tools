@@ -5,12 +5,6 @@ cask "iterm2"
 cask "visual-studio-code"
 cask "font-ubuntu-mono-nerd-font"   # powerline glyphs for agnoster + vim-airline
 
-# --- Misc tools carried over from the old Brewfile --------------------------
-brew "pandoc"
-brew "imagemagick"
-brew "nmap"
-brew "exiftool"
-
 # --- VS Code extensions -----------------------------------------------------
 vscode "vscodevim.vim"
 vscode "ms-python.python"

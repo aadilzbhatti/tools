@@ -20,7 +20,7 @@ It's idempotent: anything already installed is left alone, so it's safe to re-ru
 
 | | `--full` (default) | `--minimal` |
 | --- | --- | --- |
-| Core CLI ([`Brewfile`](Brewfile)): git, gh, tmux, vim, fzf, ripgrep, node, python, … | ✓ | ✓ |
+| Core CLI ([`Brewfile`](Brewfile)): git, gh, tmux, vim, fzf, ripgrep, python, … | ✓ | ✓ |
 | zsh + oh-my-zsh, vim config + plugins, Claude Code | ✓ | ✓ |
 | Desktop apps ([`Brewfile.desktop`](Brewfile.desktop)): iTerm2, VS Code + extensions, Nerd Font | ✓ | |
 | iTerm2 profile | ✓ | |

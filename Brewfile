@@ -18,8 +18,6 @@ brew "tree"
 brew "htop"
 brew "gnu-sed"
 brew "coreutils"
-brew "shellcheck"
 
 # --- Languages --------------------------------------------------------------
 brew "python"
-brew "node"
