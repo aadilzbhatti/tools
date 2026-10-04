@@ -83,8 +83,21 @@ configure_iterm() {
   if [[ "$current" == "$ITERM_GUID" ]]; then
     return
   elif iterm_running; then
-    # iTerm rewrites its prefs on quit, which would undo the change.
-    warn "iTerm2 is running; quit it and re-run to make the profile the default"
+    # iTerm rewrites its prefs on quit, which would undo a change made now
+    # (e.g. when this is run from inside iTerm). So wait in the background,
+    # detached from this terminal, and apply it once iTerm has quit.
+    local pidfile="$STATE_DIR/iterm-default.pid"
+    if ! { [[ -f "$pidfile" ]] && kill -0 "$(cat "$pidfile")" 2>/dev/null; }; then
+      # shellcheck disable=SC2016  # $1/$2 expand in the inner bash
+      nohup bash -c '
+        while ps -axo comm= | grep "/iTerm.app/Contents/MacOS/iTerm2$" >/dev/null; do sleep 2; done
+        defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "$1"
+        rm -f "$2"
+      ' _ "$ITERM_GUID" "$pidfile" >/dev/null 2>&1 </dev/null &
+      echo $! >"$pidfile"
+      disown
+    fi
+    info "the profile becomes the default once you quit iTerm2 (Cmd-Q); new windows/tabs can use it right away via Profiles"
   else
     defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "$ITERM_GUID"
   fi
