@@ -23,6 +23,15 @@ HISTSIZE=50000
 SAVEHIST=50000
 setopt share_history hist_ignore_dups hist_ignore_space
 
+# --- Keys -------------------------------------------------------------------
+# Opt+Left/Right jump by word. The iTerm2 profile sends ESC b / ESC f (already
+# bound); these cover iTerm2's stock profile (ESC [1;3D/C) and Terminal.app
+# (ESC b/f), so it works even where the tools profile isn't the active one.
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;5D' backward-word   # Ctrl+Left/Right
+bindkey '^[[1;5C' forward-word
+
 # --- Aliases ----------------------------------------------------------------
 command -v eza >/dev/null && alias ls='eza' ll='eza -lah --git' lt='eza --tree --level=2'
 command -v bat >/dev/null && alias cat='bat --paging=never --style=plain'
