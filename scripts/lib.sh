@@ -32,6 +32,7 @@ as_root() {
 usage() {
   cat <<'EOF'
 Usage: install.sh [--minimal | --full] [--skip-packages] [--no-tailscale]
+                   [--logi-options]
 
   --minimal        macOS: headless dev box for SSH / remote Claude Code. Core CLI
                    tools, zsh, vim, Claude Code, Tailscale, Remote Login on, no
@@ -39,8 +40,10 @@ Usage: install.sh [--minimal | --full] [--skip-packages] [--no-tailscale]
   --full           macOS: everything, including desktop apps (the default).
   --skip-packages  Don't install/upgrade packages; just relink config.
   --no-tailscale   Don't install Tailscale (--tailscale turns it back on).
+  --logi-options   macOS: install Logi Options+ on its own and exit; skips
+                   everything else. Also included in --full.
 
-On Linux, --minimal/--full are ignored (there's no desktop part).
+On Linux, --minimal/--full/--logi-options are ignored (there's no desktop part).
 The chosen options are remembered, so a plain re-run (or `tools-update`) keeps them.
 EOF
 }

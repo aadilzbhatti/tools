@@ -153,6 +153,22 @@ configure_server() {
   fi
 }
 
+# --logi-options: install Logi Options+ on its own, skipping everything else.
+# Also included in Brewfile.desktop, so a plain --full run gets it too.
+install_logi_options() {
+  bold "Installing Logi Options+"
+  install_homebrew
+  brew install --cask logi-options+
+  finish "Reboot for Logi Options+ to take effect."
+}
+
+for arg in "$@"; do
+  if [[ "$arg" == "--logi-options" ]]; then
+    install_logi_options
+    exit 0
+  fi
+done
+
 parse_args "$@"
 bold "Setting up macOS in $MODE mode"
 install_homebrew

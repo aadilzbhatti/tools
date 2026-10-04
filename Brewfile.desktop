@@ -4,6 +4,7 @@
 cask "iterm2"
 cask "visual-studio-code"
 cask "font-ubuntu-mono-nerd-font"   # powerline glyphs for agnoster + vim-airline
+cask "logi-options+"                # keyboard/mouse config, synced from laptop
 
 # --- VS Code extensions -----------------------------------------------------
 vscode "vscodevim.vim"
