@@ -1,14 +1,10 @@
 # Managed by ~/.tools (github.com/aadilzbhatti/tools). Put machine-specific
 # stuff in ~/.zshrc.local so this file can stay a symlink.
 
-# Homebrew (Apple Silicon or Intel)
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-export PATH="$HOME/.local/bin:$PATH"
+# PATH is set in ~/.zshenv. On macOS, /etc/zprofile's path_helper then moves
+# system dirs to the front for login shells, so put Homebrew back ahead of them.
+[[ -n "$HOMEBREW_PREFIX" ]] && path=("$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $path)
+path=("$HOME/.local/bin" $path)
 export EDITOR=vim
 
 # --- oh-my-zsh --------------------------------------------------------------
@@ -30,6 +26,7 @@ setopt share_history hist_ignore_dups hist_ignore_space
 # --- Aliases ----------------------------------------------------------------
 command -v eza >/dev/null && alias ls='eza' ll='eza -lah --git' lt='eza --tree --level=2'
 command -v bat >/dev/null && alias cat='bat --paging=never --style=plain'
+command -v batcat >/dev/null && alias bat='batcat' cat='batcat --paging=never --style=plain'  # Debian/Ubuntu name
 
 # ssh into a host and attach to tmux with iTerm2's native tmux integration
 tssh() { ssh "$@" -t 'tmux -CC -u attach || tmux -CC -u new'; }

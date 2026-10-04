@@ -1,0 +1,11 @@
+# Managed by ~/.tools (github.com/aadilzbhatti/tools).
+# Runs for every zsh, including non-interactive `ssh host cmd` (e.g. tssh),
+# so Homebrew tools like tmux and claude are found there too.
+typeset -U path PATH   # no duplicate entries
+
+for brew in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  if [[ -x $brew ]]; then eval "$($brew shellenv)"; break; fi
+done
+unset brew
+
+path=("$HOME/.local/bin" $path)
