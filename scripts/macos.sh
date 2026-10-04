@@ -66,34 +66,48 @@ install_desktop_packages() {
 
 # ps rather than pgrep: pgrep can't always see GUI apps. No `grep -q`, since
 # its early exit would SIGPIPE ps and fail the pipeline under pipefail.
-iterm_running() {
+iterm_pid() {
   # shellcheck disable=SC2009
-  ps -axo comm= | grep "/iTerm.app/Contents/MacOS/iTerm2$" >/dev/null
+  ps -axo pid=,comm= | sed -n 's|^ *\([0-9][0-9]*\) .*/iTerm.app/Contents/MacOS/iTerm2$|\1|p' | head -n1
+}
+
+# The font cask can report "installed" without linking the files into
+# ~/Library/Fonts (the prompt's powerline arrows then render as boxes).
+ensure_font() {
+  [[ -e "$HOME/Library/Fonts/UbuntuMonoNerdFont-Regular.ttf" ]] && return
+  command -v brew >/dev/null || return 0
+  info "font files missing from ~/Library/Fonts; reinstalling the font cask"
+  brew reinstall --cask font-ubuntu-mono-nerd-font </dev/null >/dev/null 2>&1 || true
+  [[ -e "$HOME/Library/Fonts/UbuntuMonoNerdFont-Regular.ttf" ]] \
+    || warn "Ubuntu Mono Nerd Font isn't installed; prompt glyphs will look broken"
 }
 
 configure_iterm() {
   bold "Configuring iTerm2"
+  ensure_font
   # Dynamic Profiles are picked up automatically, no import step needed.
   # Copied rather than symlinked: iTerm2 doesn't reliably watch symlink targets.
   local dyn="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
   mkdir -p "$dyn"
   cp "$TOOLS_DIR/iterm2/profile.json" "$dyn/tools.json"
-  local current
+  local current pid
   current=$(defaults read com.googlecode.iterm2 "Default Bookmark Guid" 2>/dev/null || true)
   if [[ "$current" == "$ITERM_GUID" ]]; then
     return
-  elif iterm_running; then
+  elif pid=$(iterm_pid) && [[ -n "$pid" ]]; then
     # iTerm rewrites its prefs on quit, which would undo a change made now
     # (e.g. when this is run from inside iTerm). So wait in the background,
     # detached from this terminal, and apply it once iTerm has quit.
     local pidfile="$STATE_DIR/iterm-default.pid"
     if ! { [[ -f "$pidfile" ]] && kill -0 "$(cat "$pidfile")" 2>/dev/null; }; then
-      # shellcheck disable=SC2016  # $1/$2 expand in the inner bash
+      # Wait on this exact iTerm process rather than "any iTerm": a quick quit and
+      # relaunch between polls would otherwise go unnoticed.
+      # shellcheck disable=SC2016  # $1/$2/$3 expand in the inner bash
       nohup bash -c '
-        while ps -axo comm= | grep "/iTerm.app/Contents/MacOS/iTerm2$" >/dev/null; do sleep 2; done
+        while kill -0 "$3" 2>/dev/null; do sleep 1; done
         defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "$1"
         rm -f "$2"
-      ' _ "$ITERM_GUID" "$pidfile" >/dev/null 2>&1 </dev/null &
+      ' _ "$ITERM_GUID" "$pidfile" "$pid" >/dev/null 2>&1 </dev/null &
       echo $! >"$pidfile"
       disown
     fi

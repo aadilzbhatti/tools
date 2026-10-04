@@ -48,7 +48,7 @@ scripts/lib.sh        shared helpers and flag parsing
 | Vim | [vim-plug](https://github.com/junegunn/vim-plug), with plugins installed during setup |
 | Claude Code | Native installer, skipped if `claude` is already installed |
 | Tailscale | Mac full mode: the menu bar app. Mac minimal mode: the headless daemon, which runs at boot with nobody logged in. Linux: system service. Set `TS_AUTHKEY` to join without the browser login |
-| iTerm2 (Mac full) | Installs [`iterm2/profile.json`](iterm2/profile.json) as a [Dynamic Profile](https://iterm2.com/documentation-dynamic-profiles.html) (Solarized Dark, UbuntuMono Nerd Font 13pt, cmd/alt-arrow line and word jumps) and makes it the default |
+| iTerm2 (Mac full) | Installs [`iterm2/profile.json`](iterm2/profile.json) as a [Dynamic Profile](https://iterm2.com/documentation-dynamic-profiles.html) (Solarized, following the system light/dark setting; UbuntuMono Nerd Font 16pt, cmd/alt-arrow line and word jumps) and makes it the default |
 
 The repo is cloned to `~/.tools`. To run from an existing checkout instead, use `./install.sh`. Set `TOOLS_DIR=...` to clone somewhere else.
 

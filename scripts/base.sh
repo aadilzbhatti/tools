@@ -78,12 +78,33 @@ login_shell() {
   fi
 }
 
-install_shell() {
-  if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    bold "Installing oh-my-zsh"
-    RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended </dev/null
+# Check for oh-my-zsh.sh rather than just the directory: an interrupted install
+# leaves a bare .git behind, and zsh then silently falls back to its default prompt.
+install_oh_my_zsh() {
+  local omz="$HOME/.oh-my-zsh"
+  [[ -f "$omz/oh-my-zsh.sh" ]] && return
+  bold "Installing oh-my-zsh"
+  if [[ -e "$omz" ]]; then
+    if [[ -d "$omz/.git" ]] && ! git -C "$omz" rev-parse --verify -q HEAD >/dev/null 2>&1; then
+      info "removing incomplete $omz from an interrupted install"
+      rm -rf "$omz"
+    else
+      warn "$omz exists but has no oh-my-zsh.sh; move it aside and re-run"
+      return
+    fi
   fi
+  # Clone to a temp dir and rename, so an interrupted clone can't leave a half-install.
+  local tmp="$omz.tmp.$$"
+  if git clone --depth=1 -q https://github.com/ohmyzsh/ohmyzsh.git "$tmp" </dev/null; then
+    mv "$tmp" "$omz"
+  else
+    rm -rf "$tmp"
+    warn "couldn't clone oh-my-zsh; re-run to retry"
+  fi
+}
+
+install_shell() {
+  install_oh_my_zsh
   local zsh
   zsh=$(command -v zsh || true)
   if [[ -z "$zsh" ]]; then
