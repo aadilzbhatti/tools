@@ -90,6 +90,7 @@ configure_iterm() {
   local dyn="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
   mkdir -p "$dyn"
   cp "$TOOLS_DIR/iterm2/profile.json" "$dyn/tools.json"
+  cp "$TOOLS_DIR/iterm2/mini-tmux.json" "$dyn/mini-tmux.json"
   local current pid
   current=$(defaults read com.googlecode.iterm2 "Default Bookmark Guid" 2>/dev/null || true)
   if [[ "$current" == "$ITERM_GUID" ]]; then

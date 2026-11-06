@@ -1,0 +1,181 @@
+{
+  "Profiles": [
+    {
+      "Name": "mini-tmux",
+      "Guid": "7D2C6E10-5B1A-4F43-9A55-3C1E0A1D0B77",
+      "Dynamic Profile Parent Name": "Solarized (tools)",
+      "Badge Text": "MINI",
+      "Use Tab Color": true,
+      "Tab Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.5490196078431373,
+        "Blue Component": 0.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Background Color": {
+        "Red Component": 0.12549019607843137,
+        "Green Component": 0.06274509803921569,
+        "Blue Component": 0.18823529411764706,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Foreground Color": {
+        "Red Component": 0.9215686274509803,
+        "Green Component": 0.8823529411764706,
+        "Blue Component": 0.9607843137254902,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Bold Color": {
+        "Red Component": 1.0,
+        "Green Component": 1.0,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Cursor Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.6666666666666666,
+        "Blue Component": 0.1568627450980392,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Cursor Text Color": {
+        "Red Component": 0.12549019607843137,
+        "Green Component": 0.06274509803921569,
+        "Blue Component": 0.18823529411764706,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Selection Color": {
+        "Red Component": 0.35294117647058826,
+        "Green Component": 0.19607843137254902,
+        "Blue Component": 0.47058823529411764,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Selected Text Color": {
+        "Red Component": 1.0,
+        "Green Component": 1.0,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 0 Color": {
+        "Red Component": 0.19607843137254902,
+        "Green Component": 0.11764705882352941,
+        "Blue Component": 0.27450980392156865,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 8 Color": {
+        "Red Component": 0.39215686274509803,
+        "Green Component": 0.29411764705882354,
+        "Blue Component": 0.5098039215686274,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 1 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.37254901960784315,
+        "Blue Component": 0.43137254901960786,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 9 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.5294117647058824,
+        "Blue Component": 0.5686274509803921,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 2 Color": {
+        "Red Component": 0.47058823529411764,
+        "Green Component": 0.8627450980392157,
+        "Blue Component": 0.5490196078431373,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 10 Color": {
+        "Red Component": 0.6274509803921569,
+        "Green Component": 0.9411764705882353,
+        "Blue Component": 0.6862745098039216,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 3 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.7450980392156863,
+        "Blue Component": 0.3137254901960784,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 11 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.8431372549019608,
+        "Blue Component": 0.5098039215686274,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 4 Color": {
+        "Red Component": 0.47058823529411764,
+        "Green Component": 0.6274509803921569,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 12 Color": {
+        "Red Component": 0.6274509803921569,
+        "Green Component": 0.7450980392156863,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 5 Color": {
+        "Red Component": 0.8627450980392157,
+        "Green Component": 0.5098039215686274,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 13 Color": {
+        "Red Component": 0.9215686274509803,
+        "Green Component": 0.6666666666666666,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 6 Color": {
+        "Red Component": 0.35294117647058826,
+        "Green Component": 0.8627450980392157,
+        "Blue Component": 0.9019607843137255,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 14 Color": {
+        "Red Component": 0.5490196078431373,
+        "Green Component": 0.9411764705882353,
+        "Blue Component": 0.9607843137254902,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 7 Color": {
+        "Red Component": 0.8235294117647058,
+        "Green Component": 0.7843137254901961,
+        "Blue Component": 0.8823529411764706,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 15 Color": {
+        "Red Component": 0.9607843137254902,
+        "Green Component": 0.9411764705882353,
+        "Blue Component": 0.9803921568627451,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Use Separate Colors for Light and Dark Mode": false,
+      "Description": "Distinct purple/orange look for SSH + tmux sessions on the Mac mini"
+    }
+  ]
+}
