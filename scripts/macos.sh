@@ -91,6 +91,10 @@ configure_iterm() {
   mkdir -p "$dyn"
   cp "$TOOLS_DIR/iterm2/profile.json" "$dyn/tools.json"
   cp "$TOOLS_DIR/iterm2/mini-tmux.json" "$dyn/mini-tmux.json"
+  # tmux integration (tmux -CC) windows take the profile of the session that
+  # started them instead of the profile named "tmux", so windows opened from a
+  # mini-tmux session get its colors. iTerm2 reads this one live.
+  defaults write com.googlecode.iterm2 TmuxUsesDedicatedProfile -bool false
   local current pid
   current=$(defaults read com.googlecode.iterm2 "Default Bookmark Guid" 2>/dev/null || true)
   if [[ "$current" == "$ITERM_GUID" ]]; then

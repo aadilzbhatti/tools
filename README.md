@@ -49,7 +49,7 @@ scripts/lib.sh        shared helpers and flag parsing
 | Claude Code | Native installer, skipped if `claude` is already installed |
 | Tailscale | Mac full mode: the menu bar app. Mac minimal mode: the headless daemon, which runs at boot with nobody logged in. Linux: system service. Set `TS_AUTHKEY` to join without the browser login |
 | iTerm2 (Mac full) | Installs [`iterm2/profile.json`](iterm2/profile.json) as a [Dynamic Profile](https://iterm2.com/documentation-dynamic-profiles.html) (Solarized, following the system light/dark setting; UbuntuMono Nerd Font 16pt, cmd/alt-arrow line and word jumps) and makes it the default |
-| iTerm2 `mini-tmux` | Installs [`iterm2/mini-tmux.json`](iterm2/mini-tmux.json) next to it: a purple background, orange tab and a `MINI` badge, so SSH/tmux sessions to the Mac mini are easy to tell apart. Use it via Profiles → `mini-tmux`, or set a profile's Command to `ssh mini` |
+| iTerm2 `mini-tmux` | Installs [`iterm2/mini-tmux.json`](iterm2/mini-tmux.json) next to it: a purple background, orange tab and a `MINI` badge, so SSH/tmux sessions to the Mac mini are easy to tell apart. Use it via Profiles → `mini-tmux`, or set a profile's Command to `ssh mini`. tmux integration windows (`tmux -CC`, `tssh`) inherit the profile of the session that started them, so they get the same look |
 
 The repo is cloned to `~/.tools`. To run from an existing checkout instead, use `./install.sh`. Set `TOOLS_DIR=...` to clone somewhere else.
 
