@@ -5,6 +5,8 @@
       "Guid": "7D2C6E10-5B1A-4F43-9A55-3C1E0A1D0B77",
       "Dynamic Profile Parent Name": "Solarized (tools)",
       "Badge Text": "MINI",
+      "Shortcut": "M",
+      "Initial Text": "ssh -t mini 'tmux -CC -u new -A -s main'",
       "Use Tab Color": true,
       "Tab Color": {
         "Red Component": 1.0,
@@ -175,7 +177,7 @@
         "Color Space": "sRGB"
       },
       "Use Separate Colors for Light and Dark Mode": false,
-      "Description": "Distinct purple/orange look for SSH + tmux sessions on the Mac mini"
+      "Description": "Ctrl-Cmd-M: SSH to the Mac mini and attach to tmux, with a distinct purple/orange look"
     }
   ]
 }
